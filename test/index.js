@@ -2,7 +2,7 @@
  * Imports
  */
 
-var dynamicJSON = require('..')
+var lambdaJSON = require('..')
 var test = require('tape')
 var sleep = require('@f/sleep')
 
@@ -13,7 +13,7 @@ var sleep = require('@f/sleep')
 test('should convert function to obj', (t) => {
   var obj = (props) => ({foo: props.foo})
 
-  dynamicJSON(obj)({foo: 'bar'}).then(function (val) {
+  lambdaJSON(obj)({foo: 'bar'}).then(function (val) {
     t.deepEqual(val, {foo: 'bar'})
     t.end()
   })
@@ -26,7 +26,7 @@ test('should convert object with functions to plain object', (t) => {
     bar: (props) => 'woot'
   }
 
-  dynamicJSON(obj)({foo: 'bar'}).then(function (val) {
+  lambdaJSON(obj)({foo: 'bar'}).then(function (val) {
     t.deepEqual(val, {foo: 'bar', bar: 'woot'})
     t.notEqual(val, obj)
     t.end()
@@ -40,7 +40,7 @@ test('should convert object with nested functions to plain object', (t) => {
     }
   }
 
-  dynamicJSON(obj)({bar: 'woot'}).then(function (val) {
+  lambdaJSON(obj)({bar: 'woot'}).then(function (val) {
     t.deepEqual(val, {foo: {bar: 'woot'}})
     t.end()
   })
@@ -54,7 +54,7 @@ test('should resolve generators', (t) => {
     }
   }
 
-  dynamicJSON(obj)({foo: 'bar'}).then(function (val) {
+  lambdaJSON(obj)({foo: 'bar'}).then(function (val) {
     t.deepEqual(val, {foo: 'bar'})
     t.end()
   })

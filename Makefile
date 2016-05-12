@@ -21,7 +21,7 @@ init:
 	@git init
 	@git add .
 	@git commit -am "FIRST"
-	@hub create micro-js/dynamic-json -d "Convert JSON with embedded functions to static JSON."
+	@hub create micro-js/lambda-json -d "Convert JSON with embedded functions to static JSON."
 	@travis enable
 	@git push -u origin master
 

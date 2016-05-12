@@ -2,7 +2,7 @@
   "name": "@f/lambda-json",
   "description": "Convert JSON with embedded functions to static JSON.",
   "repository": "git://github.com/micro-js/lambda-json.git",
-  "version": "0.1.7",
+  "version": "1.0.0",
   "license": "MIT",
   "main": "lib/index.js",
   "scripts": {
